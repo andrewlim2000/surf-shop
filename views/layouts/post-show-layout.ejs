@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="/stylesheets/post-show.css">
   </head>
   <body>
+    <% include ../partials/navbar %>
     <%- body -%>
     <script>
       var post = <%- JSON.stringify(post) %>;
