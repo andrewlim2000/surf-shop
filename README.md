@@ -11,8 +11,7 @@
   display: block;
 }
 ```
-- Add a click listener to the clear rating button in /public/javascripts/post-show.js (
-selects and clicks nearest zero star rating input):
+- Add a click listener to the clear rating button in /public/javascripts/post-show.js (selects and clicks nearest zero star rating input):
 ```JS
 // Add click listener for clearing of rating from edit/create form
 $('.clear-rating').click(function () {
