@@ -1,6 +1,7 @@
 const Post = require('../models/post');
 const mbxGeocoding = require('@mapbox/mapbox-sdk/services/geocoding');
-const geocodingClient = mbxGeocoding({ accessToken: process.env.MAPBOX_TOKEN });
+const mapBoxToken = process.env.MAPBOX_TOKEN;
+const geocodingClient = mbxGeocoding({ accessToken: mapBoxToken });
 const cloudinary = require('cloudinary');
 cloudinary.config({
   cloud_name: 'du35xwwtn',
@@ -18,7 +19,7 @@ module.exports = {
     posts.page = Number(posts.page);
     res.render('posts/index', { 
       posts, 
-      mapBoxToken: process.env.MAPBOX_TOKEN, 
+      mapBoxToken, 
       title: 'Posts Index' 
     });
   },
@@ -57,7 +58,7 @@ module.exports = {
       }
     });
     const floorRating = post.calculateAvgRating();
-    res.render('posts/show', { post, floorRating });
+    res.render('posts/show', { post, mapBoxToken, floorRating });
   },
   // Posts Edit
   async postEdit(req, res, next) {
